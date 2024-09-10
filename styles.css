@@ -184,6 +184,20 @@ button:hover, .btn:hover {
     background-color: #ff4081 !important;
 }
 
+.btn {
+    background-color: #00bcd4;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff4081;
+}
+
+
 /* Input Styles */
 input[type="text"], input[type="email"], textarea {
     padding: 10px; /* Make the padding larger */
