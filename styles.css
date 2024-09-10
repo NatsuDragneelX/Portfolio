@@ -3,13 +3,13 @@
 body, html {
     font-family: 'Montserrat', sans-serif;
     background-color: #121212;
-    color: #ffffff;
+    color: #ffffff !important;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     position: fixed;
     width: 100%;
@@ -29,37 +29,46 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #00bcd4;
+    color: #00bcd4 !important;
     padding: 10px;
     display: block;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #ff4081;
+    color: #ff4081 !important;
 }
 
+/* Adjusting padding and margins for more compact layout */
 .section {
-    opacity: 0;
-    transition: opacity 0.6s ease-in-out;
-    padding: 50px 20px;
+    padding: 20px 10px;  /* Reduced padding for sections */
     text-align: center;
-    margin-top: 60px;
-}
-
-.section.visible {
-    opacity: 1;
+    margin-top: 40px; /* Reduced space between sections */
+    background-color: #1c1c1c;
+    color: #ffffff !important;
+    min-height: 70vh; /* Further reduced height */
 }
 
 h1, h2, h3 {
-    color: #00bcd4;
+    margin-bottom: 10px; /* Reduced margin for headings */
+    color: #00bcd4 !important;
+}
+
+p {
+    max-width: 800px;
+    margin: 10px auto; /* Reduced margin for paragraphs */
+    line-height: 1.5; /* Slightly tighter line spacing */
+}
+
+ul, li {
+    margin: 5px 0; /* Tightened margin for lists */
 }
 
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     background-color: #1f1f1f;
-    color: #ccc;
+    color: #ccc !important;
     font-size: 0.8em;
     position: relative;
     bottom: 0;
@@ -67,9 +76,10 @@ footer {
 }
 
 button, .btn {
-    background-color: #00bcd4;
-    color: white;
-    padding: 10px 20px;
+    background-color: #00bcd4 !important;
+    color: white !important;
+    padding: 8px 15px; /* Reduced button padding */
+    margin-top: 15px; /* Reduced space above buttons */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -77,15 +87,35 @@ button, .btn {
 }
 
 button:hover, .btn:hover {
-    background-color: #ff4081;
+    background-color: #ff4081 !important;
 }
 
 input[type="text"], input[type="email"], textarea {
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: 6px;
+    margin-bottom: 8px;
     border: 1px solid #ccc;
     width: 90%;
     max-width: 500px;
+    background-color: #333333;
+    color: #ffffff !important;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Hero section */
+#home {
+    background-color: #282c34;
+    color: #ffffff !important;
+    height: 80vh; /* Reduced height for hero section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
 }
 
 @media (max-width: 768px) {
