@@ -40,3 +40,27 @@ form.addEventListener('submit', function (e) {
     alert('Message sent! Thank you for contacting me.');
 });
 
+
+// Resume Modal Control
+const modal = document.getElementById("resume-modal");
+const resumeBtn = document.getElementById("resume-preview-btn");
+const closeBtn = document.querySelector(".close-btn");
+
+// Open modal when the button is clicked
+resumeBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    modal.style.display = "block";
+});
+
+// Close modal when the close button is clicked
+closeBtn.addEventListener('click', function() {
+    modal.style.display = "none";
+});
+
+// Close modal when clicking outside of the modal content
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
