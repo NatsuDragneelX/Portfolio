@@ -17,10 +17,16 @@ header {
     top: 0;
     padding: 10px 0;
     z-index: 1000; /* Ensure the header is above other elements */
-    transition: background-color 0.3s ease; /* Smooth transition for background changes */
+    transition: padding 0.3s ease, background-color 0.3s ease; /* Smooth transition */
     display: flex;
     justify-content: center; /* Center the header content */
     align-items: center;
+}
+
+/* Adjust Header on Scroll */
+header.scrolled {
+    background-color: rgba(0, 0, 0, 0.95); /* Slightly darker when scrolled */
+    padding: 5px 0; /* Reduce padding when scrolled */
 }
 
 /* Navigation Styles */
@@ -177,7 +183,6 @@ ul li {
     text-decoration: none; /* Ensure no underline on hover */
 }
 
-
 button:hover, .btn:hover {
     background-color: #ff4081 !important; /* Hover effect */
     transform: translateY(-2px); /* Lift effect on hover */
@@ -251,6 +256,10 @@ form {
         position: absolute;
         top: 60px;
         width: 100%;
+        height: 100vh; /* Full screen for mobile menu */
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 20px;
     }
 
     nav ul.show {
@@ -259,6 +268,9 @@ form {
 
     .hamburger {
         display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
     }
 
     .section {
