@@ -186,14 +186,28 @@ button:hover, .btn:hover {
 
 /* Input Styles */
 input[type="text"], input[type="email"], textarea {
-    padding: 6px;
-    margin-bottom: 8px;
-    border: 1px solid #ccc;
-    width: 90%;
-    max-width: 500px;
+    padding: 10px; /* Make the padding larger */
+    margin-bottom: 12px; /* Increase the space between inputs */
+    border-radius: 5px; /* Rounded corners */
+    width: 30%; /* Keep input fields uniform */
     background-color: #333333;
     color: #ffffff !important;
+    border: 1px solid #00bcd4; /* Border color matching the theme */
 }
+
+button {
+    background-color: #00bcd4;
+    color: #ffffff !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff4081;
+}
+
 
 form {
     display: flex;

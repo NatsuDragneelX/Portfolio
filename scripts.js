@@ -28,3 +28,15 @@ const navUl = document.querySelector('nav ul');
 hamburger.addEventListener('click', () => {
     navUl.classList.toggle('show');
 });
+
+const form = document.querySelector('form');
+form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent the default form submission
+    const name = form.querySelector('input[name="name"]').value;
+    const email = form.querySelector('input[name="email"]').value;
+    const message = form.querySelector('textarea[name="message"]').value;
+
+    console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
+    alert('Message sent! Thank you for contacting me.');
+});
+
