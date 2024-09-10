@@ -1,4 +1,3 @@
-
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -21,4 +20,11 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 sections.forEach(section => {
     observer.observe(section);
+});
+
+const hamburger = document.querySelector('.hamburger');
+const navUl = document.querySelector('nav ul');
+
+hamburger.addEventListener('click', () => {
+    navUl.classList.toggle('show');
 });

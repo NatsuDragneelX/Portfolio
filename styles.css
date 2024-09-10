@@ -1,4 +1,3 @@
-
 /* General Styles */
 body, html {
     font-family: 'Montserrat', sans-serif;
@@ -39,29 +38,45 @@ nav ul li a:hover {
     color: #ff4081 !important;
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 24px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background-color: white;
+}
+
 /* Adjusting padding and margins for more compact layout */
 .section {
-    padding: 20px 10px;  /* Reduced padding for sections */
+    padding: 20px 10px;
     text-align: center;
-    margin-top: 40px; /* Reduced space between sections */
+    margin-top: 40px;
     background-color: #1c1c1c;
     color: #ffffff !important;
-    min-height: 70vh; /* Further reduced height */
+    min-height: 70vh;
 }
 
 h1, h2, h3 {
-    margin-bottom: 10px; /* Reduced margin for headings */
+    margin-bottom: 10px;
     color: #00bcd4 !important;
 }
 
 p {
     max-width: 800px;
-    margin: 10px auto; /* Reduced margin for paragraphs */
-    line-height: 1.5; /* Slightly tighter line spacing */
+    margin: 10px auto;
+    line-height: 1.5;
 }
 
 ul, li {
-    margin: 5px 0; /* Tightened margin for lists */
+    margin: 5px 0;
 }
 
 footer {
@@ -78,8 +93,8 @@ footer {
 button, .btn {
     background-color: #00bcd4 !important;
     color: white !important;
-    padding: 8px 15px; /* Reduced button padding */
-    margin-top: 15px; /* Reduced space above buttons */
+    padding: 8px 15px;
+    margin-top: 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -110,7 +125,7 @@ form {
 #home {
     background-color: #282c34;
     color: #ffffff !important;
-    height: 80vh; /* Reduced height for hero section */
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -118,8 +133,52 @@ form {
     padding: 0 20px;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 @media (max-width: 768px) {
     nav ul {
+        display: none;
         flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        width: 100%;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .section {
+        padding: 15px 10px;
+        margin-top: 20px;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+        max-width: 100%;
+    }
+
+    footer {
+        font-size: 0.75em;
+    }
+
+    input[type="text"], input[type="email"], textarea, button {
+        width: 100%;
+        max-width: none;
+        margin-bottom: 10px;
     }
 }
