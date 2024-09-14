@@ -7,6 +7,9 @@ body, html {
     padding: 0;
     text-align: center;
     overflow-x: hidden;
+    height: 100%; /* Ensures the body and html take full height of the viewport */
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -33,6 +36,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 5px;
 }
 
 button:hover {
@@ -67,6 +71,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    flex-grow: 1; /* Pushes footer to the bottom */
 }
 
 /* Responsive Design */
@@ -87,6 +92,7 @@ button:hover {
     }
 }
 
+/* Sticky Footer */
 footer {
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.8);
@@ -94,6 +100,6 @@ footer {
     font-size: 0.8em;
     width: 100%;
     text-align: center;
-    position: relative; /* Ensure the footer is relative to the body */
+    position: relative;
     bottom: 0;
 }
