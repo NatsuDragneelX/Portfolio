@@ -25,6 +25,7 @@ p {
     margin-bottom: 20px;
 }
 
+/* Style for buttons remains the same */
 button {
     padding: 10px 20px;
     background-color: #00bcd4;
@@ -39,8 +40,18 @@ button:hover {
     background-color: #0097a7;
 }
 
-/* Game Container */
+
+/* Set the body and html to take up full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Game container should expand to take up remaining space */
 #game-container {
+    flex: 1; /* This will make it take all available space between the header and footer */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,19 +59,50 @@ button:hover {
     padding: 20px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    button {
-        padding: 8px 16px;
-    }
+#clickButton {
+    position: relative; /* Allow for position changes */
 }
 
+
+/* Footer is fixed at the bottom */
 footer {
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.8);
     color: #ccc;
     font-size: 0.8em;
-    position: relative;
-    bottom: 0;
     width: 100%;
+    text-align: center;
+    position: relative; /* Ensure the footer is relative to the body */
+    bottom: 0;
+}
+
+#performance-summary {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #1f1f1f;
+    color: #ffffff;
+    border-radius: 10px;
+    display: none; /* Hidden by default */
+}
+
+#performance-summary h2 {
+    color: #00bcd4;
+}
+
+#performance-summary p {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+
+/* Adjust the button sizes for mobile */
+@media (max-width: 768px) {
+    button {
+        padding: 8px 16px;
+    }
+
+    footer {
+        font-size: 0.7em;
+    }
 }

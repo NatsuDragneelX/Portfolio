@@ -14,15 +14,26 @@
     </header>
 
     <div id="game-container">
+        <h1>Simple Clicker Game</h1>
+        <p>Click the button as many times as you can within the time limit!</p>
         <button id="clickButton" class="btn">Click Me!</button>
         <p id="clickCount">Clicks: 0</p>
         <p id="timeRemaining">Time Left: 10s</p>
         <button id="startGameButton" class="btn">Start Game</button>
+        <button id="restartGameButton" class="btn" style="display:none;">Restart Game</button> <!-- New Restart Button -->
+        <p id="level">Level: 1</p>
     </div>
-
+    
+    <!-- Performance summary area remains the same -->
+    <div id="performance-summary" style="display: none;">
+        <h2>Performance Summary</h2>
+        <p id="roundResults"></p>
+        <p id="averageClicks"></p>
+    </div>
+    
     <footer>
         <p>Shivam Patel | 2024 ©</p>
-    </footer>
+    </footer>    
 
     <script src="scripts.js"></script>
 </body>
