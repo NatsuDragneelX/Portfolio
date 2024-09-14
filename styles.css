@@ -264,14 +264,15 @@ form {
     margin-top: 20px;
 }
 
-/* Game Canvas Style */
+/* Game Canvas Styling for Responsive Design */
 #gameCanvas {
     margin-top: 20px;
     background-color: #282c34;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-    max-width: 100%;
-    height: auto;
+    width: 100%; /* Make the canvas take full width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 1000px; /* Set a max width to prevent it from getting too large */
 }
 
 
@@ -327,13 +328,19 @@ form {
 
     #gameCanvas {
         width: 100%; /* Adjust canvas width to fit mobile screens */
-        height: 200px; /* Reduce height for smaller screens */
+        height: 300px; /* Reduce height for smaller screens */
         }
     
     .btn {
         width: 100%; /* Make buttons full-width on mobile */
-        margin: 5px 0; /* Reduce margin between buttons */
+        margin: 10px 0; /* Reduce margin between buttons */
         }
+
+    #game-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     
     #home {
         width: 100%;

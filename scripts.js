@@ -13,6 +13,18 @@ document.getElementById('playGameBtn').addEventListener('click', () => {
     document.getElementById('home').scrollIntoView({ behavior: 'smooth' }); // Scroll to the game section
 });
 
+// Add both 'click' and 'touchstart' event listeners for mobile support
+document.getElementById('playGameBtn').addEventListener('click', showGameSection);
+document.getElementById('playGameBtn').addEventListener('touchstart', showGameSection);
+
+// Function to show the game section when the "Play Game" button is clicked
+function showGameSection(e) {
+    e.preventDefault(); // Prevent any default behavior
+    document.getElementById('gameSection').style.display = 'block'; // Show the game section
+    document.getElementById('home').scrollIntoView({ behavior: 'smooth' }); // Scroll to the game section
+}
+
+
 // Intersection Observer for sections
 const sections = document.querySelectorAll('.section');
 const options = { threshold: 0.1 };
@@ -339,43 +351,99 @@ function resetSkills() {
     enemy.health = enemy.maxHealth; // Reset enemy health
 }
 
-// Handle skill dragging and throwing
+// Handle skill dragging and throwing for both mouse and touch events
 let selectedSkill = null;
 let mouseStartX = 0;
 let mouseStartY = 0;
 
+// Mouse event listeners
 canvas.addEventListener('mousedown', (e) => {
-    const mouseX = e.offsetX;
-    const mouseY = e.offsetY;
-
-    skills.forEach(skill => {
-        if (mouseX > skill.x && mouseX < skill.x + skill.width &&
-            mouseY > skill.y && mouseY < skill.y + skill.height) {
-            selectedSkill = skill;
-            mouseStartX = mouseX;
-            mouseStartY = mouseY;
-        }
-    });
+    const mouseX = e.clientX - canvas.getBoundingClientRect().left;
+    const mouseY = e.clientY - canvas.getBoundingClientRect().top;
+    startDrag(mouseX, mouseY);
 });
 
 canvas.addEventListener('mousemove', (e) => {
     if (selectedSkill && !selectedSkill.isThrown) {
-        selectedSkill.x = e.offsetX - selectedSkill.width / 2;
-        selectedSkill.y = e.offsetY - selectedSkill.height / 2;
+        const mouseX = e.clientX - canvas.getBoundingClientRect().left;
+        const mouseY = e.clientY - canvas.getBoundingClientRect().top;
+        dragSkill(mouseX, mouseY);
     }
 });
 
 canvas.addEventListener('mouseup', (e) => {
     if (selectedSkill && !selectedSkill.isThrown) {
-        // Calculate throwing velocity based on mouse movement
-        const mouseEndX = e.offsetX;
-        const mouseEndY = e.offsetY;
-        selectedSkill.velocityX = (mouseEndX - mouseStartX) / 5;
-        selectedSkill.velocityY = (mouseEndY - mouseStartY) / 5;
-        selectedSkill.isThrown = true; // Set thrown to true
-        selectedSkill = null; // Deselect skill
+        const mouseEndX = e.clientX - canvas.getBoundingClientRect().left;
+        const mouseEndY = e.clientY - canvas.getBoundingClientRect().top;
+        throwSkill(mouseEndX, mouseEndY);
     }
 });
+
+// Touch event listeners for mobile devices
+canvas.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    const touchX = touch.clientX - canvas.getBoundingClientRect().left;
+    const touchY = touch.clientY - canvas.getBoundingClientRect().top;
+    startDrag(touchX, touchY);
+});
+
+canvas.addEventListener('touchmove', (e) => {
+    if (selectedSkill && !selectedSkill.isThrown) {
+        const touch = e.touches[0];
+        const touchX = touch.clientX - canvas.getBoundingClientRect().left;
+        const touchY = touch.clientY - canvas.getBoundingClientRect().top;
+        dragSkill(touchX, touchY);
+    }
+});
+
+canvas.addEventListener('touchend', (e) => {
+    if (selectedSkill && !selectedSkill.isThrown) {
+        const touchX = mouseStartX; // Keep initial touch position
+        const touchY = mouseStartY;
+        throwSkill(touchX, touchY);
+    }
+});
+
+// Function to start dragging a skill
+function startDrag(x, y) {
+    selectedSkill = null; // Reset the selected skill
+
+    skills.forEach(skill => {
+        // Check if the mouse or touch event is within the skill's area
+        if (x > skill.x && x < skill.x + skill.width &&
+            y > skill.y && y < skill.y + skill.height) {
+            selectedSkill = skill;
+            mouseStartX = x;
+            mouseStartY = y;
+        }
+    });
+
+    // If no skill was selected, log a warning
+    if (!selectedSkill) {
+        console.warn('No skill selected for dragging.');
+    }
+}
+
+// Function to handle dragging of the selected skill
+function dragSkill(x, y) {
+    if (selectedSkill) {
+        selectedSkill.x = x - selectedSkill.width / 2;
+        selectedSkill.y = y - selectedSkill.height / 2;
+    } else {
+        console.error('No skill selected while dragging.');
+    }
+}
+
+// Function to throw the skill
+function throwSkill(x, y) {
+    if (selectedSkill) {
+        selectedSkill.velocityX = (x - mouseStartX) / 5;
+        selectedSkill.velocityY = (y - mouseStartY) / 5;
+        selectedSkill.isThrown = true;
+        selectedSkill = null;
+    }
+}
+
 
 // Start the game loop
 function gameLoop() {
@@ -388,3 +456,4 @@ function gameLoop() {
 
 // Start the game loop
 gameLoop();
+
