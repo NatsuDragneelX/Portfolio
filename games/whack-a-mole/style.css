@@ -7,6 +7,9 @@ body, html {
     padding: 0;
     text-align: center;
     overflow-x: hidden;
+    min-height: 100vh; /* Make sure body takes full height of the viewport */
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -14,6 +17,15 @@ header {
     background-color: rgba(0, 0, 0, 0.8);
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     color: #00bcd4;
+}
+
+#game-container {
+    flex: 1; /* Ensures that the game container expands to fill space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 h1 {
@@ -33,6 +45,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 0; /* Remove any extra margin to avoid misalignment */
 }
 
 button:hover {
@@ -60,12 +73,31 @@ button:hover {
     background-color: #00bcd4;
 }
 
-#game-container {
+/* Button Container */
+#button-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    justify-content: center; /* Centers the buttons horizontally */
+    gap: 15px; /* Adds spacing between the buttons */
+    margin-top: 20px; /* Space above the buttons */
+    margin-bottom: 20px; /* Adjusts space between the buttons and other elements */
+    width: 100%; /* Ensure it takes the width of the page */
+    max-width: 400px; /* Set max-width to align with the grid */
+    align-items: center; /* Centers the buttons vertically if needed */
+}
+
+/* Footer Sticky */
+footer {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ccc;
+    font-size: 0.8em;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: auto; /* Pushes footer to the bottom */
 }
 
 /* Responsive Design */
@@ -83,14 +115,4 @@ button:hover {
     button {
         padding: 8px 16px;
     }
-}
-
-footer {
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #ccc;
-    font-size: 0.8em;
-    position: relative;
-    bottom: 0;
-    width: 100%;
 }

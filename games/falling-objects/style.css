@@ -65,7 +65,8 @@ footer {
     background-color: rgba(0, 0, 0, 0.8);
     color: #ccc;
     font-size: 0.8em;
-    position: relative;
-    bottom: 0;
     width: 100%;
+    text-align: center;
+    position: relative; /* Ensure the footer is relative to the body */
+    bottom: 0;
 }
