@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivam Patel - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#github">GitHub</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="section">
+        <h1>Welcome to My Portfolio</h1>
+        <p>I'm Shivam Patel, a passionate software developer.</p>
+    </section>
+    
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>Hi, I'm Shivam Patel, a Computer Science student at LSU. I'm passionate about using technology to solve real-world challenges. I specialize in web development and game development.</p>
+        
+        <div class="resume-buttons">
+            <a href="#resume-modal" class="btn" id="resume-preview-btn">Preview Resume</a>
+            <a href="/Assets/Shivam Patel Resume.pdf" download class="btn">Download Resume</a>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        
+        <!-- Projects List -->
+        <article>
+            <h3>Elemental Puzzle Game</h3>
+            <p>Technologies: C++, Object-Oriented Programming (OOP), Custom Puzzle Engine, Leaderboards, Achievements</p>
+            <p>Developed a puzzle-based game using C++ as part of a class project in a group of 5 to 6 people, which challenges players to master four elemental forces: Air, Water, Fire, and Earth. The game includes the following features:</p>
+            <ul>
+                <li>Multi-Stage Puzzles: Players solve unique puzzles based on each element, with varying levels of difficulty and stages.</li>
+                <li>Dynamic Question Selection: Implemented a system to dynamically select random questions for each element, supporting both multiple-choice and open-ended questions.</li>
+                <li>Scoring & Achievements: Players earn points for correct answers, unlock achievements, and can track their progress via a leaderboard.</li>
+                <li>Modular Design: Structured code using separate modules for puzzles, player progress, and game logic, ensuring maintainability and scalability.</li>
+            </ul>
+            <p>This project showcases my skills in C++ development, problem-solving, and game logic design.</p>
+        </article>
+    
+        <article>
+            <h3>Custom PC Builder Web Application</h3>
+            <p>Technologies: HTML, CSS, JavaScript, Bootstrap, Backend, Database Integration</p>
+            <p>Developed a full-stack web application as part of a class project in a group of 5 to 6 people, allowing users to build custom PCs by selecting components such as CPUs, GPUs, motherboards, memory, and more. The website also includes guides and product listings, offering a comprehensive experience for users looking to assemble their own PCs. Key features include:</p>
+            <ul>
+                <li>Component Selection: Integrated a dynamic component selector where users can choose from a wide variety of PC parts, with real-time pricing and specifications. Compatibility checks between components ensure a smooth user experience.</li>
+                <li>User Authentication: Implemented user registration and login functionality, allowing users to save their builds and access them later.</li>
+                <li>Data Management: The application supports database-driven parts management, allowing users to view detailed information about each component and save their custom builds.</li>
+                <li>Guides and Assistance: Provided step-by-step guides for assembling a PC, along with detailed parts lists, to assist novice builders.</li>
+                <li>Mobile-Responsive Design: Ensured a fully responsive layout using Bootstrap, offering an optimized experience across devices.</li>
+            </ul>
+            <p>This project highlights my ability to build a complex, database-backed web application with a focus on user interaction, dynamic content, and component management.</p>
+        </article>
+    
+        <article>
+            <h3>Neuron Simulation Tool</h3>
+            <p>Technologies: Python, NumPy, Matplotlib, Computational Neuroscience</p>
+            <p>As part of a class project in a group of 5 to 6 people, I developed a neuron simulation tool that models and visualizes the membrane potential of neurons over time in response to different types of inputs. The tool includes:</p>
+            <ul>
+                <li>Simulation Modes: Supports two modes: Current Mode and Spike Mode, simulating neuron behavior in response to different stimuli.</li>
+                <li>Membrane Dynamics: Uses Euler's method to solve differential equations for neuron membrane potential, with adjustable parameters.</li>
+                <li>Configuration File: Loads neuron model parameters from a customizable JSON configuration file.</li>
+                <li>Visualization: Utilizes Matplotlib to plot the evolution of membrane potential over time.</li>
+                <li>Command-Line Interface: Enables users to configure the simulation duration and other parameters via command-line arguments.</li>
+            </ul>
+            <p>This project demonstrates my proficiency in mathematical modeling, scientific programming, and data visualization.</p>
+        </article>
+        
+        <article>
+            <h3>Memory Matching Game</h3>
+            <p>A memory card matching game built using HTML, CSS, and JavaScript. The game challenges players to match pairs of cards as quickly as possible. Each round, the cards are shuffled randomly, and players must remember the positions of the cards to find all matches. This project highlights skills in DOM manipulation and event handling.</p>
+            <div class="game-buttons">
+                <a href="../games/memory-game/index.html" class="btn" target="_blank">Play Game</a>
+            </div>
+        </article>
+        
+        <article>
+            <h3>Whack-a-Mole Game</h3>
+            <p>A fast-paced JavaScript game where users test their reflexes by hitting moles that randomly appear on the grid. The game lasts for 30 seconds, and players must click on the active moles to score points. It demonstrates the use of timing functions, random element generation, and dynamic event listeners in JavaScript.</p>
+            <div class="game-buttons">
+                <a href="../games/whack-a-mole/index.html" class="btn" target="_blank">Play Game</a>
+            </div>
+        </article>
+        
+        <article>
+            <h3>Simple Clicker Game</h3>
+            <p>A JavaScript-based clicker game where the goal is to click the button as many times as possible within 10 seconds. This game emphasizes fast, repetitive action and tracks the number of clicks in real-time. It demonstrates basic game mechanics like event handling, timers, and state management.</p>
+            <div class="game-buttons">
+                <a href="../games/clicker-game/index.html" class="btn" target="_blank">Play Game</a>
+            </div>
+        </article>
+        
+        <article>
+            <h3>Tic-Tac-Toe Game</h3>
+            <p>A JavaScript-based Tic-Tac-Toe game. Players take turns marking spaces in a 3x3 grid, with the goal of being the first to get three in a row, either horizontally, vertically, or diagonally. This project demonstrates logic handling for turn-based games, winning condition checks, and UI updates based on player actions.</p>
+            <div class="game-buttons">
+                <a href="../games/tic-tac-toe/index.html" class="btn" target="_blank">Play Game</a>
+            </div>
+        </article>
+        
+        <article>
+            <h3>Avoid the Falling Objects Game</h3>
+            <p>Dodge falling objects in this JavaScript game. Players control a character at the bottom of the screen, using the arrow keys to move left and right to avoid falling objects. The game showcases collision detection, player movement, and game loop management in a canvas-based environment.</p>
+            <div class="game-buttons">
+                <a href="../games/falling-objects/index.html" class="btn" target="_blank">Play Game</a>
+            </div>
+        </article>
+        
+
+    <section id="experience" class="section">
+        <h2>Relevant Experience</h2>
+        <article>
+            <h3>Geek Squad Consultation Agent</h3>
+            <p>Best Buy, Baton Rouge, LA — July 2022 - Current</p>
+            <ul>
+                <li>Enhanced diagnostic techniques and hardware troubleshooting.</li>
+                <li>Specialized in software problem resolution and system optimization.</li>
+                <li>Implemented security measures for network and data protection.</li>
+                <li>Trained new employees on the latest technology and troubleshooting techniques.</li>
+            </ul>
+        </article>
+        <article>
+            <h3>Electronic Associates</h3>
+            <p>Walmart, Boutte, LA — September 2019 - June 2021</p>
+            <ul>
+                <li>Assisted customers with high-tech electronics purchases.</li>
+                <li>Trained new employees, improving department efficiency and customer satisfaction.</li>
+                <li>Maintained department organization and ensured all devices were up-to-date.</li>
+            </ul>
+        </article>
+    </section>
+    
+    <section id="certifications" class="section">
+        <h2>Certifications</h2>
+        <ul>
+            <li>Microsoft Certified: Azure Data Fundamentals</li>
+            <li>Microsoft Certified: Azure Data Scientist Associate</li>
+            <li>AWS Certified Developer - Associate</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <form action="your-backend-endpoint" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message"></textarea>
+            <button type="submit">Send</button>
+        </form>        
+    </section>
+
+    <footer>
+        <p>Copyright © Shivam Patel 2024</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+/* General Styles */
+body, html {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Header Styling */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 10px 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Navigation Menu Styling */
+header nav ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: #00bcd4;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ffffff;
+}
+
+/* Hamburger Menu Styling for Mobile */
+.hamburger {
+    display: none;
+}
+
+/* Section Styling */
+.section {
+    padding: 100px 20px;
+    text-align: center;
+    margin-top: 60px; /* Adds space below the fixed header */
+}
+
+h1, h2 {
+    color: #00bcd4;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Project Descriptions */
+article {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    /* Removed background-color and box-shadow from projects */
+    color: #d3d3d3;
+}
+
+article h3 {
+    font-size: 1.8em;
+    color: #00bcd4;
+}
+
+/* Special Box Styles for Buttons (Resume and Play Game) */
+.resume-buttons, .game-buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.resume-buttons .btn, .game-buttons .btn {
+    margin-right: 10px;
+    text-decoration: none;
+    background-color: #00bcd4;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    display: inline-block;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Box shadow for buttons */
+}
+
+.resume-buttons .btn:hover, .game-buttons .btn:hover {
+    background-color: #0097a7;
+}
+
+/* Contact Form */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: white;
+}
+
+form button {
+    background-color: #00bcd4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0097a7;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #1f1f1f;
+    color: #ccc;
+    font-size: 0.8em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Certifications Section */
+#certifications ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+}
+
+#certifications ul li {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #d3d3d3;
+}
+
+/* Special Box Styles for Buttons (Resume and Play Game) */
+.resume-buttons, .game-buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.resume-buttons .btn, .game-buttons .btn {
+    margin-right: 10px;
+    text-decoration: none;
+    background-color: #00bcd4;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    display: inline-block;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Box shadow for buttons */
+}
+
+.resume-buttons .btn:hover, .game-buttons .btn:hover {
+    background-color: #0097a7;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 5px 0;
+    }
+
+    h1, h2 {
+        font-size: 2em;
+    }
+
+    .section {
+        padding: 50px 20px;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    header nav ul {
+        display: none;
+        text-align: left;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+    }
+
+    header nav ul.show {
+        display: block;
+    }
+
+    header nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}

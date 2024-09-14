@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-Mole Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Whack-a-Mole Game</h1>
+        <p>Hit as many moles as you can before time runs out!</p>
+    </header>
+
+    <div id="game-container">
+        <div id="grid">
+            <div class="hole" data-index="1"></div>
+            <div class="hole" data-index="2"></div>
+            <div class="hole" data-index="3"></div>
+            <div class="hole" data-index="4"></div>
+            <div class="hole" data-index="5"></div>
+            <div class="hole" data-index="6"></div>
+            <div class="hole" data-index="7"></div>
+            <div class="hole" data-index="8"></div>
+            <div class="hole" data-index="9"></div>
+        </div>
+        <button id="startGameButton" class="btn">Start Game</button>
+        <p id="score">Score: 0</p>
+        <p id="timeRemaining">Time Left: 30s</p>
+    </div>
+
+    <footer>
+        <p>Shivam Patel | 2024 ©</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
