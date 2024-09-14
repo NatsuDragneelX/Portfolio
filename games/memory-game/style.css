@@ -7,13 +7,30 @@ body, html {
     padding: 0;
     text-align: center;
     overflow-x: hidden;
+    height: 100%; /* Ensure full height */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #00bcd4;
 }
 
 header {
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    color: #00bcd4;
+}
+
+main {
+    flex: 1; /* This makes the main content take the remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
@@ -25,7 +42,7 @@ p {
     margin-bottom: 20px;
 }
 
-button {
+button, select {
     padding: 10px 20px;
     background-color: #00bcd4;
     color: white;
@@ -33,9 +50,10 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 10px;
 }
 
-button:hover {
+button:hover, select:hover {
     background-color: #0097a7;
 }
 
@@ -67,6 +85,11 @@ button:hover {
     color: white;
     user-select: none;
     border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.card:hover {
+    transform: rotateY(180deg);
 }
 
 /* Responsive Design */
@@ -87,13 +110,15 @@ button:hover {
     }
 }
 
+/* Footer Styles */
 footer {
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.8);
     color: #ccc;
     font-size: 0.8em;
-    width: 100%;
     text-align: center;
-    position: relative; /* Ensure the footer is relative to the body */
+    width: 100%;
+    position: fixed;
     bottom: 0;
+    left: 0;
 }
