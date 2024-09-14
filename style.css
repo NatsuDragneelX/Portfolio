@@ -7,6 +7,9 @@ body, html {
     padding: 0;
     text-align: center;
     overflow-x: hidden;
+    min-height: 100vh; /* Ensure body and html stretch to full viewport height */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header Styling */
@@ -15,7 +18,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    padding: 10px 0;
+    padding: 20px 0;
     z-index: 1000;
     display: flex;
     justify-content: center;
@@ -54,9 +57,9 @@ header nav ul li a:hover {
 
 /* Section Styling */
 .section {
-    padding: 100px 20px;
     text-align: center;
     margin-top: 60px; /* Adds space below the fixed header */
+    flex: 1; /* Makes sure the section expands to take available space */
 }
 
 h1, h2 {
@@ -70,7 +73,6 @@ article {
     padding: 20px;
     margin: 20px auto;
     max-width: 800px;
-    /* Removed background-color and box-shadow from projects */
     color: #d3d3d3;
 }
 
@@ -94,7 +96,7 @@ article h3 {
     color: white;
     display: inline-block;
     transition: background-color 0.3s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Box shadow for buttons */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
 .resume-buttons .btn:hover, .game-buttons .btn:hover {
@@ -106,9 +108,9 @@ form {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: transparent; /* Change to transparent to match the background */
-    border-radius: 0; /* Remove rounded corners if you don't want them */
-    box-shadow: none; /* Remove any shadow */
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 form input, form textarea {
@@ -135,23 +137,25 @@ form button:hover {
     background-color: #0097a7;
 }
 
-
 /* Footer Styling */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 20px; /* Reduce padding for a more compact footer */
     background-color: #1f1f1f;
     color: #ffffff;
     font-size: 0.9em;
-    position: fixed;  /* Make it stick to the bottom */
-    bottom: 0;
     width: 100%;
+    margin-top: auto; /* Pushes footer to the bottom when content is less */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Optional shadow for better appearance */
 }
 
+footer p {
+    margin: 0; /* Remove margins for proper spacing */
+}
 
 /* Certifications Section */
 #certifications ul {
-    list-style-type: none; /* Remove bullet points */
+    list-style-type: none;
     padding: 0;
 }
 
@@ -161,34 +165,11 @@ footer {
     color: #d3d3d3;
 }
 
-/* Special Box Styles for Buttons (Resume and Play Game) */
-.resume-buttons, .game-buttons {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.resume-buttons .btn, .game-buttons .btn {
-    margin-right: 10px;
-    text-decoration: none;
-    background-color: #00bcd4;
-    padding: 10px 20px;
-    border-radius: 5px;
-    color: white;
-    display: inline-block;
-    transition: background-color 0.3s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Box shadow for buttons */
-}
-
-.resume-buttons .btn:hover, .game-buttons .btn:hover {
-    background-color: #0097a7;
-}
-
 /* Remove bullet points in the experience section */
 #experience ul {
-    list-style-type: none; /* Disable default bullets */
-    padding-left: 0;       /* Optional: Remove any left padding */
+    list-style-type: none;
+    padding-left: 0;
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -198,10 +179,6 @@ footer {
 
     h1, h2 {
         font-size: 2em;
-    }
-
-    .section {
-        padding: 50px 20px;
     }
 
     .hamburger {
