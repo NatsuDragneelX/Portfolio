@@ -106,8 +106,9 @@ form {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #1f1f1f;
-    border-radius: 10px;
+    background-color: transparent; /* Change to transparent to match the background */
+    border-radius: 0; /* Remove rounded corners if you don't want them */
+    box-shadow: none; /* Remove any shadow */
 }
 
 form input, form textarea {
@@ -127,23 +128,26 @@ form button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 form button:hover {
     background-color: #0097a7;
 }
 
+
 /* Footer Styling */
 footer {
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     background-color: #1f1f1f;
-    color: #ccc;
-    font-size: 0.8em;
-    position: relative;
+    color: #ffffff;
+    font-size: 0.9em;
+    position: fixed;  /* Make it stick to the bottom */
     bottom: 0;
     width: 100%;
 }
+
 
 /* Certifications Section */
 #certifications ul {
@@ -177,6 +181,12 @@ footer {
 
 .resume-buttons .btn:hover, .game-buttons .btn:hover {
     background-color: #0097a7;
+}
+
+/* Remove bullet points in the experience section */
+#experience ul {
+    list-style-type: none; /* Disable default bullets */
+    padding-left: 0;       /* Optional: Remove any left padding */
 }
 
 
