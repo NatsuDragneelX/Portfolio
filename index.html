@@ -16,30 +16,33 @@
                 <span></span>
             </div>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#github">GitHub</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home"><img src="/Assets/images/Home.png" alt="Home" width="24" height="24"> Home</a></li>
+                <li><a href="#experience"><img src="/Assets/images/Experience.png" alt="Experience" width="24" height="24"> Experience</a></li>
+                <li><a href="#projects"><img src="/Assets/images/Code.png" alt="Projects" width="24" height="24"> Projects</a></li>
+                <li><a href="#games"><img src="/Assets/images/Game.png" alt="Games" width="24" height="24"> Games</a></li>
+                <li><a href="#certifications"><img src="/Assets/images/Experience.png" alt="Certifications" width="24" height="24"> Certifications</a></li>
+                <li><a href="#contact"><img src="/Assets/images/Email.png" alt="Contact" width="24" height="24"> Contact</a></li>
             </ul>
         </nav>
     </header>
     
-    <section id="home" class="section">
-        <h1>Welcome to My Portfolio</h1>
-        <p>I'm Shivam Patel, a passionate software developer.</p>
-    </section>
-    
     <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>Hi, I'm Shivam Patel, a Computer Science student at LSU. I'm passionate about using technology to solve real-world challenges. I specialize in web development and game development.</p>
-        
-        <div class="resume-buttons">
-            <a href="/Assets/Shivam Patel Resume.pdf" download class="btn">Download Resume</a>
+        <div class="about-container">
+            <!-- Left or Right Aligned Image -->
+            <div class="about-picture">
+                <img src="/Assets/images/Goku.jpg" alt="Shivam Patel" />
+            </div>
+            <div class="about-text">
+                <h1>Welcome to My Portfolio</h1>
+                <p>Hello! I'm Shivam Patel, a senior Computer Science student at LSU. I have a strong passion for web and game development, and I enjoy applying my skills to real-world challenges.</p>
+                <p>I’m experienced in web technologies and game development, and I look forward to continuing my journey as a software developer.</p>
+                <div class="resume-buttons">
+                    <a href="/Assets/Shivam Patel Resume.pdf" download class="btn">Download Resume</a>
+                </div>
+            </div>
         </div>
     </section>
+    
 
     <section id="projects" class="section">
         <h2>Projects</h2>
@@ -86,6 +89,10 @@
             <p>This project demonstrates my proficiency in mathematical modeling, scientific programming, and data visualization.</p>
         </article>
         
+
+        <section id="games" class="section">
+            <h2>Games</h2>
+            <!-- Games List -->
         <article>
             <h3>Memory Matching Game</h3>
             <p>A dynamic memory card matching game built using HTML, CSS, and JavaScript, offering multiple levels of difficulty, themed card sets, and player stats tracking. The game challenges players to match pairs of cards as quickly as possible while a timer tracks their performance. Players can select between Easy, Medium, and Hard difficulty levels, choose different themes (letters, numbers, or images), and use hints to briefly reveal all cards. This project showcases skills in DOM manipulation, event handling, responsive design, and game logic implementation.</p>
@@ -157,23 +164,27 @@
     </section>
     
     <section id="certifications" class="section">
-        <h2>Certifications</h2>
+        <h2>Future Certifications</h2>
         <ul>
             <li>Microsoft Certified: Azure Data Fundamentals</li>
             <li>Microsoft Certified: Azure Data Scientist Associate</li>
             <li>AWS Certified Developer - Associate</li>
         </ul>
     </section>
-
+    
     <section id="contact" class="section">
         <h2>Contact Me</h2>
-        <form action="your-backend-endpoint" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message"></textarea>
-            <button type="submit">Send</button>
-        </form>        
+           <!-- Social Media Links -->
+        <div class="social-links">
+            <a href="https://github.com/your-github-username" target="_blank" class="btn social-btn">
+                <img src="/Assets/images/Github.png" alt="GitHub"> GitHub
+            </a>
+            <a href="https://linkedin.com/in/your-linkedin-username" target="_blank" class="btn social-btn">
+                <img src="/Assets/images/LinkedIn.png" alt="LinkedIn"> LinkedIn
+            </a>
+        </div>
     </section>
+       
 
     <footer>
         <p>Copyright © Shivam Patel 2024</p>

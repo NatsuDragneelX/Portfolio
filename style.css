@@ -1,53 +1,144 @@
 /* General Styles */
-body, html {
+body {
+    background: linear-gradient(135deg, #006064, #1c1c1c); /* Darker background gradient */
+    color: #e0e0e0; /* Light grey text for readability */
     font-family: 'Montserrat', sans-serif;
-    background-color: #121212;
-    color: #ffffff;
     margin: 0;
     padding: 0;
-    text-align: center;
-    overflow-x: hidden;
-    min-height: 100vh; /* Ensure body and html stretch to full viewport height */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* Header Styling */
-header {
-    background-color: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    padding: 20px 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+/* Section Styling */
+.section {
+    padding: 80px 20px; /* More padding for a modern feel */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Navigation Menu Styling */
+/* Headings Styling */
+h1, h2 {
+    font-size: 2.2em; /* Smaller, more modern size */
+    font-weight: 500; /* Thinner weight for cleaner design */
+    background: none; /* Remove gradient background */
+    color: #ffffff; /* Simple white text */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle text shadow for depth */
+    letter-spacing: 1px; /* Slight letter spacing */
+    margin-bottom: 20px;
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #d3d3d3; /* Light grey for paragraphs */
+}
+
+/* Button Styling */
+.btn {
+    background: #00acc1; /* Flat, modern color */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px; /* Rounded, pill-shaped buttons */
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background: #00838f; /* Slightly darker on hover */
+    transform: translateY(-3px); /* Hover movement */
+}
+
+/* Contact Form Styling */
+form input, form textarea {
+    border: 1px solid #00acc1; /* Flat, modern border */
+    padding: 10px;
+    border-radius: 8px; /* Softer corners for inputs */
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+    width: 100%; /* Full width of form inputs */
+    box-sizing: border-box; /* Make padding fit within the width */
+}
+
+form input::placeholder, form textarea::placeholder {
+    color: #888; /* Lighter placeholder text */
+}
+
+form button {
+    background-color: #00acc1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #00838f;
+}
+
+/* Footer Styling */
+footer {
+    background-color: transparent; /* Make footer background transparent */
+    color: #b0bec5; /* Text color for contrast */
+    font-size: 0.9em;
+    padding: 20px;
+    text-align: center;
+    box-shadow: none; /* Remove shadow or border */
+}
+
+/* Optional: Add a subtle border on top */
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for separation */
+}
+
+/* Center the navigation menu */
 header nav ul {
-    list-style-type: none; /* Remove bullet points */
+    list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
+    justify-content: center; /* Centers the navigation items */
+    align-items: center; /* Vertically centers the items */
+    text-align: center;
 }
 
+/* Styling for the navigation links */
 header nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin-right: 20px; /* Space between menu items */
 }
 
 header nav ul li a {
-    color: #00bcd4;
+    color: #e0e0e0; /* Light grey color */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     text-decoration: none;
-    padding: 10px;
     transition: color 0.3s;
 }
 
 header nav ul li a:hover {
-    color: #ffffff;
+    color: #00acc1; /* Hover effect */
+}
+
+/* Style for icons in the navigation bar */
+header nav ul li a img {
+    margin-right: 10px; /* Space between the icon and text */
+    vertical-align: middle; /* Align the icon vertically with the text */
+}
+
+/* Style for social icons in the contact section */
+.social-links a img {
+    margin-right: 8px; /* Add space between the icon and the text */
+    vertical-align: middle; /* Align icons with text */
 }
 
 /* Hamburger Menu Styling for Mobile */
@@ -55,132 +146,8 @@ header nav ul li a:hover {
     display: none;
 }
 
-/* Section Styling */
-.section {
-    text-align: center;
-    margin-top: 60px; /* Adds space below the fixed header */
-    flex: 1; /* Makes sure the section expands to take available space */
-}
-
-h1, h2 {
-    color: #00bcd4;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-/* Project Descriptions */
-article {
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    color: #d3d3d3;
-}
-
-article h3 {
-    font-size: 1.8em;
-    color: #00bcd4;
-}
-
-/* Special Box Styles for Buttons (Resume and Play Game) */
-.resume-buttons, .game-buttons {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.resume-buttons .btn, .game-buttons .btn {
-    margin-right: 10px;
-    text-decoration: none;
-    background-color: #00bcd4;
-    padding: 10px 20px;
-    border-radius: 5px;
-    color: white;
-    display: inline-block;
-    transition: background-color 0.3s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-
-.resume-buttons .btn:hover, .game-buttons .btn:hover {
-    background-color: #0097a7;
-}
-
-/* Contact Form */
-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
-}
-
-form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: none;
-    background-color: #333;
-    color: white;
-}
-
-form button {
-    background-color: #00bcd4;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background-color: #0097a7;
-}
-
-/* Footer Styling */
-footer {
-    text-align: center;
-    padding: 20px; /* Reduce padding for a more compact footer */
-    background-color: #1f1f1f;
-    color: #ffffff;
-    font-size: 0.9em;
-    width: 100%;
-    margin-top: auto; /* Pushes footer to the bottom when content is less */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Optional shadow for better appearance */
-}
-
-footer p {
-    margin: 0; /* Remove margins for proper spacing */
-}
-
-/* Certifications Section */
-#certifications ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#certifications ul li {
-    margin-bottom: 10px;
-    font-size: 1.2em;
-    color: #d3d3d3;
-}
-
-/* Remove bullet points in the experience section */
-#experience ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-/* Responsive Design */
+/* Responsive Design for Navigation */
 @media (max-width: 768px) {
-    header {
-        padding: 5px 0;
-    }
-
-    h1, h2 {
-        font-size: 2em;
-    }
-
     .hamburger {
         display: block;
         cursor: pointer;
@@ -203,5 +170,153 @@ footer p {
     header nav ul li {
         display: block;
         margin: 10px 0;
+    }
+}
+
+/* Projects and Games Sections */
+article {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #d3d3d3;
+}
+
+/* Button Hover Effects */
+.btn:hover {
+    background: linear-gradient(135deg, #0097a7, #006a75); /* Darker gradient on hover */
+    transform: scale(1.05); /* Slight scale-up effect on hover */
+}
+
+/* Responsive Design for Sections */
+@media (max-width: 768px) {
+    .section {
+        padding: 40px 15px;
+        max-width: 100%;
+    }
+
+    h1, h2 {
+        font-size: 1.8em; /* Adjust header font size for mobile */
+    }
+
+    article {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .btn {
+        padding: 15px 20px; /* Larger button padding for touch devices */
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 20px 10px;
+    }
+
+    h1, h2 {
+        font-size: 1.5em; /* Adjust font size further for small screens */
+    }
+
+    .btn {
+        padding: 12px 15px; /* Slightly smaller buttons on small screens */
+        font-size: 16px;
+    }
+
+    .section > * {
+        margin-bottom: 10px;
+    }
+}
+
+/* Add Spacing Between Elements */
+.section > * {
+    margin-bottom: 20px; /* Space between elements in sections */
+}
+
+/* Certifications Section */
+#certifications ul {
+    list-style-type: none; /* Removes bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+#certifications ul li {
+    font-size: 1.2em;
+    color: #d3d3d3;
+}
+
+/* Social Links Styling */
+.social-links {
+    margin-top: 20px;
+}
+
+.social-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #00bcd4, #0097a7); /* Matching the button style */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-align: center;
+    margin: 10px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+    font-size: 16px;
+}
+
+.social-btn:hover {
+    background: linear-gradient(135deg, #0097a7, #006a75); /* Darker on hover */
+    transform: scale(1.05);
+}
+
+.social-btn img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Updated layout for the about section */
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    padding: 40px; /* Add modern padding around the content */
+    gap: 30px; /* Add spacing between the image and text */
+}
+
+/* Styling for the image */
+.about-picture {
+    flex: 1;
+    max-width: 300px; /* Control image size */
+    margin-right: 20px; /* Space between image and text */
+}
+
+/* Styling for the circular image */
+.about-picture img {
+    width: 100%; /* Ensure the image takes up its container space */
+    border-radius: 50%; /* Makes the image a perfect circle */
+    border: 5px solid #00acc1; /* Add a border around the image for a modern look */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+}
+
+/* Styling for the text */
+.about-text {
+    flex: 2; /* Take more space for text compared to image */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-picture {
+        margin-right: 0;
+        margin-bottom: 20px;
     }
 }

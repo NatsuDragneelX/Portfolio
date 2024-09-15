@@ -25,20 +25,3 @@ form.addEventListener('submit', function (e) {
 
     console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
 });
-
-// Modal handling for resume
-const modal = document.getElementById("resume-modal");
-const resumeBtn = document.getElementById("resume-preview-btn");
-const closeBtn = document.querySelector(".close-btn");
-resumeBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    modal.style.display = "block";
-});
-closeBtn.addEventListener('click', function() {
-    modal.style.display = "none";
-});
-window.addEventListener('click', function(event) {
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-});
