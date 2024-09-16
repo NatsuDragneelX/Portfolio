@@ -80,6 +80,32 @@ form button {
     transition: background-color 0.3s;
 }
 
+.game-buttons {
+    display: flex;
+    gap: 10px; /* Add spacing between the buttons */
+    justify-content: flex-start; /* Align buttons to the left */
+    align-items: center; /* Center vertically */
+}
+
+.read-more-btn, .game-buttons a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #00acc1;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover, .game-buttons a:hover {
+    background-color: #00838f; /* Darker on hover */
+}
+
+
 form button:hover {
     background-color: #00838f;
 }
@@ -141,9 +167,10 @@ header nav ul li a img {
     vertical-align: middle; /* Align icons with text */
 }
 
-/* Hamburger Menu Styling for Mobile */
+/* Hide regular menu and show hamburger icon on smaller screens */
 .hamburger {
     display: none;
+    cursor: pointer;
 }
 
 /* Responsive Design for Navigation */
@@ -320,3 +347,30 @@ article {
         margin-bottom: 20px;
     }
 }
+
+
+.more-content {
+    display: none; /* Hidden by default */
+    margin-top: 10px;
+}
+
+.read-more-btn {
+    background-color: #00acc1;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #00838f;
+}
+
+.read-more-btn.active {
+    background-color: #00838f;
+    color: #fff;
+}
+

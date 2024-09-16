@@ -1,40 +1,27 @@
 /* General Styles */
-body, html {
+body {
+    background: linear-gradient(135deg, #006064, #1c1c1c); /* Darker background gradient */
+    color: #e0e0e0; /* Light grey text for readability */
     font-family: 'Montserrat', sans-serif;
-    background-color: #121212;
-    color: #ffffff;
     margin: 0;
     padding: 0;
-    text-align: center;
-    overflow-x: hidden;
-    height: 100%; /* Ensure full height */
-}
-
-body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
-header, footer {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #00bcd4;
 }
 
 header {
     padding: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-
-main {
-    flex: 1; /* This makes the main content take the remaining space */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #00bcd4;
+    text-align: center;
 }
 
 h1 {
     font-size: 2.5em;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
 }
 
 p {
@@ -42,37 +29,42 @@ p {
     margin-bottom: 20px;
 }
 
+/* Button and Select Styling */
 button, select {
-    padding: 10px 20px;
-    background-color: #00bcd4;
+    background: #00acc1;
     color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
     border: none;
-    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
     cursor: pointer;
-    transition: background-color 0.3s;
     margin: 10px;
 }
 
 button:hover, select:hover {
-    background-color: #0097a7;
+    background: #00838f; /* Hover effect */
+    transform: translateY(-3px);
 }
 
 /* Game Container */
 #game-container {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 40px;
 }
 
 #card-grid {
     display: grid;
     grid-template-columns: repeat(4, 100px);
-    grid-gap: 10px;
+    grid-gap: 20px;
     justify-content: center;
 }
 
-/* Card Styles */
 .card {
     width: 100px;
     height: 100px;
@@ -96,7 +88,7 @@ button:hover, select:hover {
 @media (max-width: 768px) {
     #card-grid {
         grid-template-columns: repeat(3, 100px);
-        grid-gap: 5px;
+        grid-gap: 10px;
     }
 
     .card {
@@ -110,15 +102,31 @@ button:hover, select:hover {
     }
 }
 
-/* Footer Styles */
+/* Footer */
 footer {
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.8);
-    color: #ccc;
-    font-size: 0.8em;
+    color: #b0bec5;
+    font-size: 0.9em;
     text-align: center;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+}
+
+/* Home Button Styling */
+.home-btn {
+    display: inline-block;
+    background: #00acc1; /* Button background color */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px; /* Rounded, pill-shaped button */
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    margin: 10px;
+}
+
+.home-btn:hover {
+    background: #00838f; /* Darker hover effect */
+    transform: translateY(-3px);
 }

@@ -1,23 +1,27 @@
 /* General Styles */
-body, html {
+body {
+    background: linear-gradient(135deg, #006064, #1c1c1c); /* Darker background gradient */
+    color: #e0e0e0; /* Light grey text for readability */
     font-family: 'Montserrat', sans-serif;
-    background-color: #121212;
-    color: #ffffff;
     margin: 0;
     padding: 0;
-    text-align: center;
-    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     color: #00bcd4;
+    text-align: center;
 }
 
 h1 {
     font-size: 2.5em;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
 }
 
 p {
@@ -25,32 +29,49 @@ p {
     margin-bottom: 20px;
 }
 
+/* Button Styling */
 button {
-    padding: 10px 20px;
-    background-color: #00bcd4;
+    background: #00acc1;
     color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
     border: none;
-    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
     cursor: pointer;
-    transition: background-color 0.3s;
+    margin: 5px;
 }
 
 button:hover {
-    background-color: #0097a7;
-}
-
-#game-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    background: #00838f; /* Hover effect */
+    transform: translateY(-3px);
 }
 
 /* Game Canvas */
 #gameCanvas {
     background-color: #333;
     border: 2px solid #00bcd4;
+}
+
+/* Game Container */
+#game-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* Footer Styling */
+footer {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #b0bec5;
+    font-size: 0.9em;
+    text-align: center;
 }
 
 /* Responsive Design */
@@ -60,13 +81,22 @@ button:hover {
     }
 }
 
-footer {
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #ccc;
-    font-size: 0.8em;
-    width: 100%;
-    text-align: center;
-    position: relative; /* Ensure the footer is relative to the body */
-    bottom: 0;
+/* Home Button Styling */
+.home-btn {
+    display: inline-block;
+    background: #00acc1; /* Button background color */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px; /* Rounded, pill-shaped button */
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    margin: 10px;
+}
+
+.home-btn:hover {
+    background: #00838f; /* Darker hover effect */
+    transform: translateY(-3px);
 }

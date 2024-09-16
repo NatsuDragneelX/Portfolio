@@ -25,3 +25,14 @@ form.addEventListener('submit', function (e) {
 
     console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
 });
+
+function toggleMoreContent(contentId, button) {
+    const content = document.getElementById(contentId);
+    if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        button.innerText = "Read Less";
+    } else {
+        content.style.display = "none";
+        button.innerText = "Read More";
+    }
+}
