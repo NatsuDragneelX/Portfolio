@@ -149,6 +149,7 @@ header nav ul li a {
     letter-spacing: 1px;
     text-decoration: none;
     transition: color 0.3s;
+    font-size: 18px; /* Increase font size of the header links */
 }
 
 header nav ul li a:hover {
@@ -157,8 +158,10 @@ header nav ul li a:hover {
 
 /* Style for icons in the navigation bar */
 header nav ul li a img {
-    margin-right: 10px; /* Space between the icon and text */
+    margin-right: 12px; /* Space between the icon and text */
     vertical-align: middle; /* Align the icon vertically with the text */
+    width: 32px; /* Increase the icon size */
+    height: 32px;
 }
 
 /* Style for social icons in the contact section */
