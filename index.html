@@ -12,6 +12,9 @@
 <body>
     <nav class="navbar">
         <div class="nav-content">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="logo">SP</div>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-item active"><i class="fas fa-home"></i><span>Home</span></a></li>
@@ -23,6 +26,34 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="profile-section">
+            <img src="Assets/images/My Photo.jpg" alt="Shivam Patel" class="profile-image">
+            <h3 class="profile-name">Shivam Patel</h3>
+            <p class="profile-title">Software Developer</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-item active"><i class="fas fa-home"></i><span>Home</span></a></li>
+            <li><a href="#about" class="nav-item"><i class="fas fa-user"></i><span>About</span></a></li>
+            <li><a href="#games" class="nav-item"><i class="fas fa-gamepad"></i><span>Games</span></a></li>
+            <li><a href="#projects" class="nav-item"><i class="fas fa-code"></i><span>Projects</span></a></li>
+            <li><a href="#experience" class="nav-item"><i class="fas fa-briefcase"></i><span>Experience</span></a></li>
+            <li><a href="#contact" class="nav-item"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+        </ul>
+        <div class="social-links">
+            <a href="https://github.com/NatsuDragneelX" target="_blank" class="social-link">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/natsu-dragneel-0989b2330/" target="_blank" class="social-link">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay"></div>
 
     <main>
         <section id="home" class="hero-section">
