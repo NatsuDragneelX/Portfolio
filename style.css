@@ -21,18 +21,6 @@
     }
 }
 
-@keyframes float {
-    50% {
-        transform: translate3d(0, -20px, 0);
-    }
-}
-
-@keyframes glow {
-    50% {
-        box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
-    }
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -221,8 +209,8 @@ body::after {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--hover-shadow);
-    animation: float 8s ease-in-out infinite;
-    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .profile-container::before {
@@ -235,8 +223,6 @@ body::after {
     border: 2px solid var(--accent-color);
     border-radius: 25px;
     opacity: 0.3;
-    animation: glow 4s ease-in-out infinite;
-    will-change: opacity, box-shadow;
 }
 
 .profile-container img {
@@ -247,11 +233,8 @@ body::after {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
-    will-change: transform;
-    backface-visibility: hidden;
     transform: translateZ(0);
-    -webkit-font-smoothing: subpixel-antialiased;
-    loading: lazy;
+    backface-visibility: hidden;
 }
 
 .profile-container:hover img {
