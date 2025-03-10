@@ -5,232 +5,294 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shivam Patel - Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="hamburger">
-                <img src="/Assets/images/Hamburger Menu.png" alt="Menu" width="24" height="24">
-                <span></span>
-                <span></span>
-            </div>
-            <ul>
-                <li><a href="#home"><img src="/Assets/images/Home.png" alt="Home" width="24" height="24"> Home</a></li>
-                <li><a href="#experience"><img src="/Assets/images/Experience.png" alt="Experience" width="24" height="24"> Experience</a></li>
-                <li><a href="#projects"><img src="/Assets/images/Code.png" alt="Projects" width="24" height="24"> Projects</a></li>
-                <li><a href="#games"><img src="/Assets/images/Game.png" alt="Games" width="24" height="24"> Games</a></li>
-                <li><a href="#certifications"><img src="/Assets/images/Experience.png" alt="Certifications" width="24" height="24"> Certifications</a></li>
-                <li><a href="#contact"><img src="/Assets/images/Email.png" alt="Contact" width="24" height="24"> Contact</a></li>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">SP</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-item active"><i class="fas fa-home"></i><span>Home</span></a></li>
+                <li><a href="#about" class="nav-item"><i class="fas fa-user"></i><span>About</span></a></li>
+                <li><a href="#games" class="nav-item"><i class="fas fa-gamepad"></i><span>Games</span></a></li>
+                <li><a href="#projects" class="nav-item"><i class="fas fa-code"></i><span>Projects</span></a></li>
+                <li><a href="#experience" class="nav-item"><i class="fas fa-briefcase"></i><span>Experience</span></a></li>
+                <li><a href="#contact" class="nav-item"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
             </ul>
-        </nav>
-    </header>
-    
-    <section id="about" class="section">
-        <div class="about-container">
-            <div class="about-picture">
-                <img src="/Assets/images/My Photo.jpg" alt="Shivam Patel" />
-            </div>
-            <div class="about-text">
-                <h1>Hi, I'm Shivam Patel</h1>
-                <p>I'm a senior at LSU, passionate about web and game development. With experience in creating interactive web applications and games, I love solving real-world problems through code.</p>
-                <p>I’m eager to keep pushing my skills as I move forward in my career as a software developer.</p>
-                <div class="resume-buttons">
-                    <a href="/Assets/Shivam Patel Resume.pdf" download class="btn">Download Resume</a>
-                </div>
-            </div>
         </div>
-    </section>
-    
-    
+    </nav>
 
-    <section id="projects" class="section">
-        <h2>Projects</h2>
-        
-        <article>
-            <h3>Elemental Puzzle Game</h3>
-            <p>Technologies: C++, Object-Oriented Programming (OOP), Custom Puzzle Engine</p>
-            <p>Developed a puzzle-based game that challenges players to master four elemental forces: Air, Water, Fire, and Earth.</p>
-            <div class="more-content" id="puzzle-more">
-                <ul>
-                    <li>Multi-Stage Puzzles with varying levels of difficulty and stages.</li>
-                    <li>Dynamic Question Selection for both multiple-choice and open-ended questions.</li>
-                    <li>Leaderboard, Achievements, and modular design for maintainability.</li>
-                </ul>
-                <p>This project showcases my skills in C++ development, problem-solving, and game logic design.</p>
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text" data-aos="fade-right">
+                    <h1>Hi, I'm <span class="highlight">Shivam Patel</span></h1>
+                    <div class="typing-container">
+                        <span class="typing-text"></span>
+                    </div>
+                    <p class="hero-description">
+                        LSU graduate passionate about creating innovative software solutions.
+                        Specializing in full-stack development and game programming.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="/Assets/Shivam Patel Resume.pdf" download class="btn primary-btn">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                        <a href="#contact" class="btn secondary-btn">
+                            <i class="fas fa-envelope"></i> Get in Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image" data-aos="fade-left">
+                    <div class="profile-container">
+                        <img src="Assets/images/My Photo.jpg" alt="Shivam Patel" loading="eager" decoding="async" />
+                        <div class="social-links">
+                            <a href="https://github.com/NatsuDragneelX" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/natsu-dragneel-0989b2330/" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button class="read-more-btn" onclick="toggleMoreContent('puzzle-more', this)">Read More</button>
-        </article>
-        
-        <article>
-            <h3>Custom PC Builder Web Application</h3>
-            <p>Technologies: HTML, CSS, JavaScript, Bootstrap, Backend</p>
-            <p>Developed a full-stack web app that allows users to build custom PCs by selecting components like CPUs and GPUs.</p>
-            <div class="more-content" id="pc-builder-more">
-                <ul>
-                    <li>Real-time pricing and compatibility checks between components.</li>
-                    <li>User authentication for saving builds.</li>
-                    <li>Step-by-step guides for novice PC builders.</li>
-                    <li>Mobile-Responsive Design using Bootstrap for cross-device optimization.</li>
-                </ul>
-                <p>This project highlights my skills in full-stack development, user interaction, and database management.</p>
+        </section>
+
+        <section id="about" class="section">
+            <div class="section-content">
+                <h2 class="section-title" data-aos="fade-up">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-text" data-aos="fade-right">
+                        <p>I'm a recent graduate from Louisiana State University (LSU) with a passion for creating innovative software solutions. My journey in technology has equipped me with strong foundations in both web and game development.</p>
+                        <p>I specialize in full-stack development and game programming, with expertise in modern web technologies and game engines. My projects demonstrate my ability to solve complex problems and create user-friendly solutions.</p>
+                    </div>
+                    <div class="skills-container" data-aos="fade-left">
+                        <h3>Technical Skills</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <i class="fas fa-code"></i>
+                                <span>Full Stack Development</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-gamepad"></i>
+                                <span>Game Development</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Responsive Design</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-database"></i>
+                                <span>Database Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button class="read-more-btn" onclick="toggleMoreContent('pc-builder-more', this)">Read More</button>
-        </article>
-        
-        <article>
-            <h3>Neuron Simulation Tool</h3>
-            <p>Technologies: Python, NumPy, Matplotlib</p>
-            <p>Developed a neuron simulation tool that models and visualizes neuron membrane potential in response to stimuli.</p>
-            <div class="more-content" id="neuron-more">
-                <ul>
-                    <li>Simulation Modes: Current Mode and Spike Mode.</li>
-                    <li>Membrane dynamics modeled using Euler's method.</li>
-                    <li>Customizable neuron model parameters using a JSON configuration file.</li>
-                </ul>
-                <p>This project demonstrates proficiency in scientific programming and data visualization.</p>
+        </section>
+
+        <section id="games" class="section games-section">
+            <div class="section-content">
+                <h2 class="section-title" data-aos="fade-up">Interactive Games</h2>
+                <p class="section-description" data-aos="fade-up">
+                    Explore interactive games I've developed using modern web technologies. Each game showcases different aspects of my programming skills and creativity.
+                </p>
+                
+                <div class="games-grid">
+                    <div class="game-card" data-aos="fade-up">
+                        <div class="game-preview">
+                            <img src="Assets/images/Snakes.png" alt="Snake Game Preview" loading="eager" decoding="async">
+                            <div class="game-overlay">
+                                <a href="games/Snake/" class="play-btn">
+                                    <i class="fas fa-play"></i> Play Now
+                                </a>
+                            </div>
+                        </div>
+                        <div class="game-content">
+                            <h3>Snake Game</h3>
+                            <p>A modern take on the classic Snake game with smooth controls and engaging gameplay.</p>
+                            <ul class="game-features">
+                                <li><i class="fas fa-check"></i> Responsive design</li>
+                                <li><i class="fas fa-check"></i> Touch controls</li>
+                                <li><i class="fas fa-check"></i> High score tracking</li>
+                                <li><i class="fas fa-check"></i> Increasing difficulty</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="game-preview">
+                            <img src="Assets/images/Tic Tae Tao.png" alt="Tic Tac Toe Game Preview" loading="eager" decoding="async">
+                            <div class="game-overlay">
+                                <a href="games/TicTacToe/" class="play-btn">
+                                    <i class="fas fa-play"></i> Play Now
+                                </a>
+                            </div>
+                        </div>
+                        <div class="game-content">
+                            <h3>Tic Tac Toe</h3>
+                            <p>Challenge the AI or play against a friend in this beautifully designed game.</p>
+                            <ul class="game-features">
+                                <li><i class="fas fa-check"></i> Smart AI opponent</li>
+                                <li><i class="fas fa-check"></i> Score tracking</li>
+                                <li><i class="fas fa-check"></i> Two-player mode</li>
+                                <li><i class="fas fa-check"></i> Responsive design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button class="read-more-btn" onclick="toggleMoreContent('neuron-more', this)">Read More</button>
-        </article>        
-        
-        <section id="games" class="section">
-            <h2>Games</h2>
+        </section>
 
-            <!-- Snake Game -->
-            <article>
-                <h3>Snake Game</h3>
-                <p>A classic Snake game built using HTML, CSS, and JavaScript, where players control a snake to eat food, grow longer, and avoid collisions with the walls or itself.</p>
-                <div class="more-content" id="snake-more">
-                    <p>The game features increasing difficulty as the snake grows longer, with levels that advance every few points. Players can also choose different snake designs and themes, including Classic, Neon, and Nature styles. Additionally, the option to toggle borders is available, allowing the snake to either wrap around the screen or hit the wall for a game over. This project demonstrates skills in canvas manipulation, responsive game design, and user interaction.</p>
-                </div>
-                <div class="game-buttons">
-                    <button class="read-more-btn" onclick="toggleMoreContent('snake-more', this)">Read More</button>
-                    <a href="./games/Snakes-game/index.html" class="btn" target="_blank">Play Game</a>
-                </div>
-            </article>
+        <section id="projects" class="section projects-section">
+            <div class="section-content">
+                <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="project-content">
+                            <h3>Elemental Puzzle Game</h3>
+                            <p class="project-tech">C++, OOP, Custom Puzzle Engine</p>
+                            <p class="project-description">A puzzle-based game challenging players to master four elemental forces: Air, Water, Fire, and Earth.</p>
+                            <ul class="project-features">
+                                <li><i class="fas fa-check"></i> Multi-Stage Puzzles</li>
+                                <li><i class="fas fa-check"></i> Dynamic Question Selection</li>
+                                <li><i class="fas fa-check"></i> Leaderboard System</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <!-- Memory Matching Game -->
-            <!-- <article>
-                <h3>Memory Matching Game</h3>
-                <p>A dynamic memory card matching game built using HTML, CSS, and JavaScript, with multiple difficulty levels and themed card sets.</p>
-                <div class="more-content" id="memory-more">
-                    <p>The game challenges players to match pairs of cards as quickly as possible while a timer tracks their performance. Players can select between Easy, Medium, and Hard difficulty levels, choose different themes (letters, numbers, or images), and use hints to briefly reveal all cards. This project showcases skills in DOM manipulation, event handling, responsive design, and game logic implementation.</p>
-                </div>
-                <div class="game-buttons">
-                    <button class="read-more-btn" onclick="toggleMoreContent('memory-more', this)">Read More</button>
-                    <a href="./games/memory-game/index.html" class="btn" target="_blank">Play Game</a>
-                </div>
-            </article> -->
-            
-            <!-- Whack-a-Mole Game -->
-            <!-- <article>
-                <h3>Whack-a-Mole Game</h3>
-                <p>A fast-paced game where users hit moles that appear on a grid.</p>
-                <div class="more-content" id="whack-more">
-                    <p>The game features multiple modes, including:</p>
-                    <ul>
-                        <li><strong>Classic Mode</strong>: 30 seconds to hit as many moles as possible.</li>
-                        <li><strong>Ultimate Mode</strong>: Multiple moles and shorter time limits.</li>
-                        <li><strong>Timer Mode</strong>: 60 seconds to rack up the highest score.</li>
-                    </ul>
-                    <p>This project demonstrates the use of JavaScript timing functions, random element generation, and responsive design techniques.</p>
-                </div>
-                <div class="game-buttons">
-                    <button class="read-more-btn" onclick="toggleMoreContent('whack-more', this)">Read More</button>
-                    <a href="./games/whack-a-mole/index.html" class="btn" target="_blank">Play Game</a>
-                </div>
-            </article> -->
-        
-            <!-- Tic-Tac-Toe Game -->
-            <article>
-                <h3>Tic-Tac-Toe Game</h3>
-                <p>A classic Tic-Tac-Toe game with added AI opponents and difficulty settings.</p>
-                <div class="more-content" id="tic-tac-toe-more">
-                    <p>Players can choose between playing against a friend or the computer. The game includes turn-based logic, AI strategy, and winning condition checks. It is responsive and works seamlessly across various devices.</p>
-                </div>
-                <div class="game-buttons">
-                    <button class="read-more-btn" onclick="toggleMoreContent('tic-tac-toe-more', this)">Read More</button>
-                    <a href="./games/tic-tac-toe/index.html" class="btn" target="_blank">Play Game</a>
-                </div>
-            </article>
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-content">
+                            <h3>Custom PC Builder</h3>
+                            <p class="project-tech">HTML, CSS, JavaScript, Bootstrap</p>
+                            <p class="project-description">A full-stack web app for building custom PCs with real-time compatibility checking.</p>
+                            <ul class="project-features">
+                                <li><i class="fas fa-check"></i> Component Compatibility</li>
+                                <li><i class="fas fa-check"></i> User Authentication</li>
+                                <li><i class="fas fa-check"></i> Responsive Design</li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <!-- Simple Clicker Game -->
-            <!-- <article>
-                <h3>Simple Clicker Game</h3>
-                <p>A JavaScript-based clicker game that increases in difficulty as you progress.</p>
-                <div class="more-content" id="clicker-more">
-                    <p>The goal is to click the button as many times as possible within a limited time. The game tracks and displays performance metrics, including clicks per round and average clicks. It also features a restart option for replayability. This project showcases event handling, timers, and dynamic UI updates in JavaScript.</p>
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-content">
+                            <h3>Neuron Simulation</h3>
+                            <p class="project-tech">Python, NumPy, Matplotlib</p>
+                            <p class="project-description">A tool for modeling and visualizing neuron membrane potential responses.</p>
+                            <ul class="project-features">
+                                <li><i class="fas fa-check"></i> Multiple Simulation Modes</li>
+                                <li><i class="fas fa-check"></i> Dynamic Visualization</li>
+                                <li><i class="fas fa-check"></i> Configurable Parameters</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="game-buttons">
-                    <button class="read-more-btn" onclick="toggleMoreContent('clicker-more', this)">Read More</button>
-                    <a href="./games/clicker-game/index.html" class="btn" target="_blank">Play Game</a>
-                </div>
-            </article> -->
-        
-            <!-- Avoid the Falling Objects Game -->
-            <!-- <article>
-                <h3>Avoid the Falling Objects Game</h3>
-                <p>A canvas-based game where players dodge falling objects.</p>
-                <div class="more-content" id="falling-objects-more">
-                    <p>Players use the arrow keys to move left and right to avoid falling objects. The game showcases collision detection, player movement, and game loop management in a canvas-based environment.</p>
-                </div>
-                <div class="game-buttons">
-                    <button class="read-more-btn" onclick="toggleMoreContent('falling-objects-more', this)">Read More</button>
-                    <a href="./games/falling-objects/index.html" class="btn" target="_blank">Play Game</a>
-                </div>
-            </article>
-        </section>         -->
+            </div>
+        </section>
 
-    <section id="experience" class="section"> 
-        <h2>Relevant Experience</h2>
-        <article>
-            <h3>Geek Squad Consultation Agent</h3>
-            <p>Best Buy, Baton Rouge, LA — July 2022 - Current</p>
-            <ul>
-                <li>Enhanced diagnostic techniques and hardware troubleshooting.</li>
-                <li>Specialized in software problem resolution and system optimization.</li>
-                <li>Implemented security measures for network and data protection.</li>
-                <li>Trained new employees on the latest technology and troubleshooting techniques.</li>
-            </ul>
-        </article>
-        <article>
-            <h3>Electronic Associates</h3>
-            <p>Walmart, Boutte, LA — September 2019 - June 2021</p>
-            <ul>
-                <li>Assisted customers with high-tech electronics purchases.</li>
-                <li>Trained new employees, improving department efficiency and customer satisfaction.</li>
-                <li>Maintained department organization and ensured all devices were up-to-date.</li>
-            </ul>
-        </article>
-    </section>
-    
-    <section id="certifications" class="section">
-        <h2>Future Certifications</h2>
-        <ul>
-            <li>Microsoft Certified: Azure Data Fundamentals</li>
-            <li>Microsoft Certified: Azure Data Scientist Associate</li>
-            <li>AWS Certified Developer - Associate</li>
-        </ul>
-    </section>
-    
-    <section id="contact" class="section">
-        <h2>Contact Me</h2>
-           <!-- Social Media Links -->
-        <div class="social-links">
-            <a href="https://github.com/NatsuDragneelX" target="_blank" class="btn social-btn">
-                <img src="/Assets/images/Github.png" alt="GitHub"> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/natsu-dragneel-0989b2330/" target="_blank" class="btn social-btn">
-                <img src="/Assets/images/LinkedIn.png" alt="LinkedIn"> LinkedIn
-            </a>
-        </div>
-    </section>
-       
+        <section id="experience" class="section experience-section">
+            <div class="section-content">
+                <h2 class="section-title" data-aos="fade-up">Work Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <h3>Geek Squad Consultation Agent</h3>
+                            <p class="timeline-location">Best Buy, Baton Rouge, LA</p>
+                            <p class="timeline-date">July 2022 - Present</p>
+                            <ul class="timeline-details">
+                                <li>Enhanced diagnostic techniques and hardware troubleshooting</li>
+                                <li>Specialized in software problem resolution</li>
+                                <li>Implemented security measures for network protection</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h3>Electronic Associates</h3>
+                            <p class="timeline-location">Walmart, Boutte, LA</p>
+                            <p class="timeline-date">September 2019 - June 2021</p>
+                            <ul class="timeline-details">
+                                <li>Assisted customers with electronics purchases</li>
+                                <li>Trained new employees and improved efficiency</li>
+                                <li>Maintained department organization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="section-content">
+                <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-info" data-aos="fade-right">
+                        <div class="social-grid">
+                            <a href="https://github.com/NatsuDragneelX" target="_blank" class="social-card">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/natsu-dragneel-0989b2330/" target="_blank" class="social-card">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>Copyright © Shivam Patel 2024</p>
+        <div class="footer-content">
+            <p>&copy; 2024 Shivam Patel. All rights reserved.</p>
+        </div>
     </footer>
-    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="scripts.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Typing animation
+        const texts = ['Software Developer', 'Game Developer', 'Full Stack Engineer'];
+        let count = 0;
+        let index = 0;
+        let currentText = '';
+        let letter = '';
+
+        function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+
+            document.querySelector('.typing-text').textContent = letter;
+            if (letter.length === currentText.length) {
+                setTimeout(() => {
+                    index = 0;
+                    count++;
+                }, 2000);
+            }
+            setTimeout(type, 100);
+        }
+
+        window.onload = () => {
+            type();
+            initPreviews();
+        };
+
+        // Game previews
+        // ... (rest of your existing game preview code) ...
+    </script>
 </body>
 </html>

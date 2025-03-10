@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe - Portfolio Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00acc1;
+            --secondary-color: #00838f;
+            --accent-color: #64ffda;
+            --bg-color: #0a192f;
+            --text-color: #e0e0e0;
+            --x-color: #f44336;
+            --o-color: #2196F3;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --hover-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, var(--bg-color), rgba(10, 25, 47, 0.95));
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        .game-title {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .main-container {
+            padding-top: 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .game-container {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .game-container:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--accent-color);
+        }
+
+        .status {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            min-height: 30px;
+            color: var(--accent-color);
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        .cell {
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cell:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+        }
+
+        .cell.x, .cell.o {
+            cursor: not-allowed;
+        }
+
+        .cell.x::before, .cell.x::after {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 4px;
+            background: var(--x-color);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .cell.x::before {
+            transform: rotate(45deg);
+        }
+
+        .cell.x::after {
+            transform: rotate(-45deg);
+        }
+
+        .cell.o::before {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            border: 4px solid var(--o-color);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .score-board {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px 0;
+            gap: 1rem;
+        }
+
+        .score-item {
+            flex: 1;
+            padding: 1rem;
+            border-radius: 10px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .score-item:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .restart-btn {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .restart-btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .mode-btn {
+            background: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .mode-btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            transform: scale(1.05);
+        }
+
+        .mode-btn.active {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .difficulty-selector {
+            margin: 1rem 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .difficulty-btn {
+            background: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .difficulty-btn.active {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .winner {
+            animation: winner 0.5s ease infinite;
+        }
+
+        @keyframes winner {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @media (max-width: 480px) {
+            .game-container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+
+            .cell {
+                font-size: 2.5em;
+            }
+
+            .status {
+                font-size: 1.2em;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+            <div class="game-title">Tic Tac Toe</div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="game-container">
+            <div class="status" id="status">
+                <i class="fas fa-gamepad"></i> Player X's turn
+            </div>
+            
+            <div class="score-board">
+                <div class="score-item">
+                    <i class="fas fa-times"></i> Player X
+                    <div id="scoreX">0</div>
+                </div>
+                <div class="score-item">
+                    <i class="fas fa-circle"></i> Player O
+                    <div id="scoreO">0</div>
+                </div>
+            </div>
+
+            <div id="aiControls" class="difficulty-selector">
+                <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+            </div>
+
+            <div class="board" id="board">
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+            </div>
+
+            <div class="controls">
+                <button class="btn restart-btn" id="restartBtn">
+                    <i class="fas fa-redo"></i> Restart Game
+                </button>
+                <button class="btn mode-btn" id="aiModeBtn">
+                    <i class="fas fa-robot"></i> Toggle AI Mode
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="tictactoe.js"></script>
+</body>
+</html> 

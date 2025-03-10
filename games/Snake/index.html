@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game - Portfolio Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00acc1;
+            --secondary-color: #00838f;
+            --accent-color: #64ffda;
+            --bg-color: #0a192f;
+            --text-color: #e0e0e0;
+            --snake-color: #4CAF50;
+            --food-color: #f44336;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --hover-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, var(--bg-color), rgba(10, 25, 47, 0.95));
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        .game-title {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .main-container {
+            padding-top: 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .game-container {
+            position: relative;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .game-container:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--accent-color);
+        }
+
+        #gameCanvas {
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: var(--accent-color);
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .mobile-controls {
+            display: none;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .control-btn {
+            padding: 15px 25px;
+            font-size: 1.2em;
+            background: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .start-btn {
+            background: var(--accent-color);
+            padding: 12px 30px;
+            font-size: 1.2em;
+            color: var(--bg-color);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .start-btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .game-over {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(10, 25, 47, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            z-index: 100;
+            border: 1px solid var(--accent-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .game-over h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .game-stats {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .difficulty-selector {
+            margin: 1rem 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .difficulty-btn {
+            background: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .difficulty-btn.active {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-controls {
+                display: grid;
+            }
+
+            .control-btn {
+                padding: 20px;
+            }
+
+            #gameCanvas {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .game-container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+            <div class="game-title">Snake Game</div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="game-container">
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <div class="game-info">
+                <span>Score: <span id="score">0</span></span>
+                <span>High Score: <span id="highScore">0</span></span>
+            </div>
+            <div class="difficulty-selector">
+                <button class="difficulty-btn active" data-speed="100">Easy</button>
+                <button class="difficulty-btn" data-speed="75">Medium</button>
+                <button class="difficulty-btn" data-speed="50">Hard</button>
+            </div>
+            <button class="start-btn" id="startBtn">
+                <i class="fas fa-play"></i> Start Game
+            </button>
+            <div class="mobile-controls">
+                <button class="control-btn" id="leftBtn"><i class="fas fa-arrow-left"></i></button>
+                <button class="control-btn" id="upBtn"><i class="fas fa-arrow-up"></i></button>
+                <button class="control-btn" id="rightBtn"><i class="fas fa-arrow-right"></i></button>
+                <button class="control-btn" id="downBtn"><i class="fas fa-arrow-down"></i></button>
+            </div>
+            <div class="game-over" id="gameOver">
+                <h2><i class="fas fa-trophy"></i> Game Over!</h2>
+                <div class="game-stats">
+                    <p>Final Score: <span id="finalScore">0</span></p>
+                    <p>High Score: <span id="finalHighScore">0</span></p>
+                    <p>Time Played: <span id="timePlayed">0:00</span></p>
+                </div>
+                <button class="start-btn" onclick="restartGame()">
+                    <i class="fas fa-redo"></i> Play Again
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="snake.js"></script>
+</body>
+</html> 
