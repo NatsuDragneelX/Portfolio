@@ -54,78 +54,109 @@ const lazyLoadImages = () => {
 // Initialize lazy loading
 lazyLoadImages();
 
-// Performance-optimized image loading
-const imageLoader = {
-    observer: null,
-    init() {
-        // Create single IntersectionObserver instance
-        this.observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        this.loadImage(entry.target);
-                        this.observer.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                rootMargin: '50px 0px',
-                threshold: 0.1
-            }
-        );
+// Optimize scroll performance
+let scrollTimeout;
+const body = document.body;
+let lastScrollTop = 0;
+let ticking = false;
 
-        // Initialize on DOM load
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => this.initializeImages());
-        } else {
-            this.initializeImages();
-        }
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Add scrolling class only when actually scrolling
+            if (Math.abs(currentScrollTop - lastScrollTop) > 50) {
+                body.classList.add('is-scrolling');
+                
+                // Clear previous timeout
+                clearTimeout(scrollTimeout);
+                
+                // Set new timeout
+                scrollTimeout = setTimeout(() => {
+                    body.classList.remove('is-scrolling');
+                }, 150);
+            }
+            
+            lastScrollTop = currentScrollTop;
+            ticking = false;
+        });
+        
+        ticking = true;
+    }
+}, { passive: true });
+
+// Optimize image loading
+const imageLoader = {
+    init() {
+        this.images = document.querySelectorAll('img[data-src]');
+        this.loadVisibleImages();
+        this.setupIntersectionObserver();
     },
 
-    initializeImages() {
-        const images = document.querySelectorAll('.game-preview img, .profile-container img');
-        images.forEach(img => {
-            if (img.complete) {
-                img.classList.add('loaded');
-            } else {
-                img.classList.add('loading');
-                this.observer.observe(img);
+    loadVisibleImages() {
+        this.images.forEach(img => {
+            if (this.isInViewport(img)) {
+                this.loadImage(img);
+            }
+        });
+    },
+
+    isInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    },
+
+    setupIntersectionObserver() {
+        const options = {
+            root: null,
+            rootMargin: '50px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.loadImage(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        this.images.forEach(img => {
+            if (!img.complete) {
+                observer.observe(img);
             }
         });
     },
 
     loadImage(img) {
-        const tempImage = new Image();
-        
-        tempImage.onload = () => {
-            requestAnimationFrame(() => {
-                img.src = tempImage.src;
-                img.classList.remove('loading');
-                img.classList.add('loaded');
-            });
-        };
-
-        tempImage.src = img.dataset.src || img.src;
+        if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+        }
     }
 };
 
-// Initialize image loader
-imageLoader.init();
+// Initialize optimizations
+document.addEventListener('DOMContentLoaded', () => {
+    imageLoader.init();
+});
 
-// Optimize scroll performance
-let scrollTimeout;
-const body = document.body;
-
-window.addEventListener('scroll', () => {
-    if (!body.classList.contains('is-scrolling')) {
-        body.classList.add('is-scrolling');
+// Prevent unnecessary reflows
+window.addEventListener('resize', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            // Update any necessary layout calculations here
+            ticking = false;
+        });
+        ticking = true;
     }
-    
-    clearTimeout(scrollTimeout);
-    
-    scrollTimeout = setTimeout(() => {
-        body.classList.remove('is-scrolling');
-    }, 150);
 }, { passive: true });
 
 // Optimize animation frames
@@ -138,7 +169,9 @@ const optimizeAnimations = () => {
                 if (!entry.isIntersecting) {
                     entry.target.style.willChange = 'auto';
                 } else {
-                    entry.target.style.willChange = 'transform';
+                    requestAnimationFrame(() => {
+                        entry.target.style.willChange = 'transform';
+                    });
                 }
             });
         },
@@ -148,4 +181,7 @@ const optimizeAnimations = () => {
     );
 
     animatedElements.forEach(element => observer.observe(element));
-}; 
+};
+
+// Initialize animation optimization
+optimizeAnimations(); 
